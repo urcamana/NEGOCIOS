@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Negocios · Eldorado · Me Mata Limón</title>
+  <meta name="description" content="Directorio de negocios y servicios profesionales de Eldorado, Misiones." />
+  <meta name="theme-color" content="#a88cd7" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="Negocios Eldorado" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="https://mematalimon.com.ar/IMG/icono.png" type="image/png" />
+  <link rel="apple-touch-icon" href="https://mematalimon.com.ar/IMG/icono.png" />
+  <!-- Fallback sin JS -->
+  <meta http-equiv="refresh" content="2; url=https://mematalimon.com.ar/otrosnegocios/index.html" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      background: linear-gradient(160deg, #f8f5fc 0%, #efe8f8 55%, #f5f0fa 100%);
+      color: #2d2a33;
+      text-align: center;
+      padding: 1.5rem;
+    }
+    .box {
+      max-width: 320px;
+    }
+    .logo {
+      width: 72px;
+      height: 72px;
+      border-radius: 18px;
+      object-fit: cover;
+      box-shadow: 0 8px 24px rgba(115, 90, 160, 0.25);
+      background: #fff;
+    }
+    h1 {
+      font-size: 1.25rem;
+      margin: 1rem 0 0.35rem;
+      color: #6b4f9c;
+    }
+    p {
+      margin: 0 0 1rem;
+      font-size: 0.9rem;
+      color: #6b7280;
+      line-height: 1.4;
+    }
+    .spinner {
+      width: 28px;
+      height: 28px;
+      border: 3px solid rgba(168, 140, 215, 0.25);
+      border-top-color: #a88cd7;
+      border-radius: 50%;
+      margin: 0 auto 1rem;
+      animation: spin 0.7s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      color: #6b4f9c;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <img class="logo" src="https://mematalimon.com.ar/IMG/icono.png" alt="Me Mata Limón" width="72" height="72" />
+    <h1>Negocios Eldorado</h1>
+    <p>Abriendo el directorio de profesionales y comercios…</p>
+    <div class="spinner" aria-hidden="true"></div>
+    <a id="link" href="https://mematalimon.com.ar/otrosnegocios/index.html">Entrar ahora</a>
+  </div>
+  <script>
+    (function () {
+      var DESTINO = 'https://mematalimon.com.ar/otrosnegocios/index.html';
+      // Registrar SW (solo en este subdominio: pantalla de arranque)
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./sw.js').catch(function () {});
+      }
+      // Redirección rápida
+      setTimeout(function () {
+        window.location.replace(DESTINO);
+      }, 400);
+    })();
+  </script>
+</body>
+</html>

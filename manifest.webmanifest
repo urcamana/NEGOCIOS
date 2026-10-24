@@ -1,0 +1,26 @@
+{
+  "name": "Negocios Eldorado · Me Mata Limón",
+  "short_name": "Negocios",
+  "description": "Directorio de negocios y servicios profesionales de Eldorado",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f5f0fa",
+  "theme_color": "#a88cd7",
+  "lang": "es-AR",
+  "icons": [
+    {
+      "src": "https://mematalimon.com.ar/IMG/icono.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "https://mematalimon.com.ar/IMG/icono.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
