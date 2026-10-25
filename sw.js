@@ -1,8 +1,9 @@
-/* Service worker del lanzador negocios.mematalimon.com.ar
-   Solo cubre este subdominio (la pantalla de inicio / redirección).
-   El contenido real vive en mematalimon.com.ar/otrosnegocios/ */
-const CACHE = 'negocios-launcher-v1';
-const ASSETS = ['./', './index.html', './manifest.webmanifest'];
+/* Service worker de negocios.mematalimon.com.ar
+   Red primero (así no quedan páginas viejas guardadas) y, si no hay conexión, lo que haya en caché.
+   Cambiar el número de CACHE fuerza a los celulares a descartar la versión anterior
+   (la versión vieja de este sitio solo redirigía a otra página). */
+const CACHE = 'negocios-v2';
+const ASSETS = ['./', './index.html', './profesionales.html', './manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -21,7 +22,18 @@ self.addEventListener('activate', (event) => {
 self.addEventListener('fetch', (event) => {
   const req = event.request;
   if (req.method !== 'GET') return;
+  const url = new URL(req.url);
+  // Solo gestionamos este subdominio; articulos.json y style.css de la web principal van directo a la red
+  if (url.origin !== self.location.origin) return;
   event.respondWith(
-    caches.match(req).then((hit) => hit || fetch(req).catch(() => caches.match('./index.html')))
+    fetch(req)
+      .then((res) => {
+        if (res && res.status === 200) {
+          const copy = res.clone();
+          caches.open(CACHE).then((c) => c.put(req, copy)).catch(() => {});
+        }
+        return res;
+      })
+      .catch(() => caches.match(req).then((r) => r || caches.match('./index.html')))
   );
 });
