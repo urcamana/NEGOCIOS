@@ -167,8 +167,22 @@
     "infoExtra": false,
     "info": "."
   },
-  {
+{
     "id": 13,
+    "nombre": "Ferretería Industrial Gonzalez S.R.L.",
+    "descripcion": "Recarga y provisión de gases. Recarga y mantenimiento de extintores. Herramientas electricas, manuales e insumos industriales. 📍 Calle colcombet 32, km4.",
+    "rubro": "Ferreteria",
+    "link": "https://wa.me/5493751374519?text=¡Hola!%20Vi%20tu%20publicidad%20en%20la%20web%20de%20Me%20mata%20limon.%20Me%20interesa%20tu%20servicio.",
+    "actualizado": "2026-10-27",
+    "preferencia": 0,
+    "recomendado": false,
+    "ubicacion": true,
+    "mapa": "https://maps.app.goo.gl/9347sJU1LWHdokb58",
+    "infoExtra": false,
+    "info": "."
+  },
+  {
+    "id": 14,
     "nombre": "Espacio Disponible 🔎",
     "descripcion": "Si queres aparecer en este listado gratuitamente escribinos y lo vamos a incorporar lo mas pronto posible!",
     "rubro": "Todos",
